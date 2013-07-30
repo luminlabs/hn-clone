@@ -11,3 +11,29 @@
  *= require_self
  *= require_tree .
  */
+.button:hover
+{
+	opacity:0.4;
+	background-color:gray !important;
+}
+
+.button.selected {
+
+	background-color: red;
+    opacity: 1; 
+
+} 
+
+.button.black {
+
+	background-color: black;
+	width: 180px;
+    opacity: 1; 
+
+} 
+
+input {
+	display:inline-block;
+	max-width: 350px;
+	
+}

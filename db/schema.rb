@@ -11,15 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729212702) do
+ActiveRecord::Schema.define(:version => 20130730213516) do
 
-  create_table "comments", :force => true do |t|
-    t.text     "text"
-    t.integer  "user_id"
-    t.integer  "link_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+# Could not dump table "comments" because of following StandardError
+#   Unknown type 'commentable_id' for column 'link_id'
 
   create_table "links", :force => true do |t|
     t.string   "url"
@@ -29,11 +24,20 @@ ActiveRecord::Schema.define(:version => 20130729212702) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_hash"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "votes", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "link_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "votable_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "votable_type"
   end
 
 end

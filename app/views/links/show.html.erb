@@ -1,32 +1,24 @@
 
-<ul class="nav nav-pills">
-  <li><%= link_to('New Book', new_book_path) %></li>
-  <li><%= link_to('Delete Book', @book, :method => :delete, :confirm => 'Are you sure?') %></li>
-  <li><%= link_to('Edit Book', edit_book_path(@book)) %></li>
-</ul>
-
-
 <div class="row">
      <div class="span3 offset1">
-      <p class="lead"><%= link_to(@book.title, @book) %></p>
-      <p class="text-info"><%= @book.cuisine %></p>
-      <p class="text-info"><%= @book.chef %></p>
+      <p class="lead"><%= link_to(@link.title, @link) %></p>
+      <p class="text-info"><%= @link.cuisine %></p>
+      <p class="text-info"><%= @link.chef %></p>
     </div>
     <div class="span8">
-      <p class="text-warning"><%= image_tag(@book.image) %></p>
+      <p class="text-warning"><%= image_tag(@link.image) %></p>
     </div>
 </div>
 
 <br>
-<% @book.recipes.each do |recipe| %>
+<% @link.comments.each do |comments| %>
   <div class="row">
     <div class="span3 offset1">
-      <p class="lead"><%= recipe.name %></p>
-      <%= image_tag(recipe.image) %>
+      <p class="lead"><%= comments.text %></p>
     </div>
 
     <div class="span8">
-      <% recipe.ingredients.each do |ingredient| %>
+      <% comments.ingredients.each do |ingredient| %>
         <%= ingredient.name %>
         <%= image_tag(ingredient.image,  size: "40x40") %>
       <% end %>

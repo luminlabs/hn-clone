@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HackerNews</title>
+  <title>WDI News</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<!-- <ul class="nav nav-pills">
-  <li><%= link_to('New Post', new_link_path) %></li>
 
-  <li><%= link_to('Delete Post', @link, :method => :delete, :confirm => 'Are you sure?') %></li>
+ 
 
-</ul> -->
+</ul> 
 
+ <div class="row" id="navbar">
+    <div class="large-3 columns" >
+   	    <%= button_to('Post a Link', new_link_path) %>
+    </div>
+    <div class="large-9 columns" id="navbar">
+      <ul class="inline-list right">
+        
+              <li class="menu-item"><%= link_to "Sign up", "" %> </li>  
+              <li class="menu-item"><%= link_to "Log in", "" %></li>
+         
+      </ul>
+    </div>
+  </div>
+  <div class="row" id="alertbar">
+    <div class="large-12 columns">
+     <p class="notice" align-text="centered"><%= notice %></p>
+       <p class="alert" align-text="centered"><%= alert %></p>
+ </div>
+ </div>
 
-<%= yield %>
+<div> 
+ <div class="large-9 push-2 columns">
+	<%= yield %>
+</div>
 <footer class="row">
     <div class="large-12 columns">
       <hr />
       <div class="row">
         <div class="large-6 columns">
-          <p>&copy; GA West.</p>
+          <p>&copy; MOwens.</p>
         </div>
       </div>
     </div> 
