@@ -1,1 +1,16 @@
-Things will go here
+
+<ul class="nav nav-pills">
+  <li>
+    <%= button_to('Post a Link', new_link_path) %>
+  </li>
+</ul>
+
+<% @links.each do |link| %>
+  <div class="row">
+     <div class="span3 offset1">
+      <p class="listing"><a href= <%= link.url %>><%= link.title%></a> <br>[<%= link.votes.count %> Votes] | <a href="" >Vote This</a> | [<a href=""><%=link.comments.count %> Comments</a>] |<a href="">      Comment on This |</a>
+      </p>
+    </div>
+  </div>
+<% end %>
+

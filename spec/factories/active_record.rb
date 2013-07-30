@@ -5,4 +5,9 @@ FactoryGirl.define do
 		url 'www.google.com'
 	end
 
+	factory :comment do
+		title 'text'
+		
+	end
+
 end

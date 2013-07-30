@@ -35,4 +35,38 @@ describe LinksController do
 
 	end
 
+
+	describe '#new' do
+  	before :each do
+  		get :new
+  	end
+  	it 'should render new.html' do
+  		expect(response).to render_template :new
+  	end
+  	it 'should assign @link' do
+  		link
+  		expect{
+  			assigns(:link)
+  			}.to be_instance_of(Link)
+  	end
+  end
+
+  describe '#edit' do 
+  	it 'should find by id' do
+  		get :edit, id: link.id
+  		expect(assigns(:link)).to eq(link)
+  	end
+  	
+  end
+
+  describe '#destroy' do
+  	it 'should delete a link' do
+  		link
+  		expect{
+  			delete :destroy, id: link.id 
+  		}.to change(Link.count).by(-1)
+  	end
+
+  end
+
 end
